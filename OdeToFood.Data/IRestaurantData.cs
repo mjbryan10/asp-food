@@ -11,6 +11,7 @@ namespace OdeToFood.Data
         IEnumerable<Restaurant> GetRestaurantsByName(string name);
         Restaurant GetById(int id);
         Restaurant Update(Restaurant updatedRestaurant);
+        Restaurant Add(Restaurant newRestaurant);
         int Commit();
     }
     public class InMemoryRestaurantData : IRestaurantData
@@ -59,6 +60,17 @@ namespace OdeToFood.Data
                    where string.IsNullOrEmpty(name) || r.Name.StartsWith(name)
                    orderby r.Name
                    select r;
+        }
+
+        public Restaurant Add(Restaurant newRestaurant)
+        {
+
+            restaurants.Add(newRestaurant);
+
+            //For dev only:
+            newRestaurant.Id = restaurants.Max(r => r.Id) + 1;
+
+            return newRestaurant;
         }
     }
 }
