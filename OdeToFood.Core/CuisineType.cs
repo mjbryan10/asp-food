@@ -5,6 +5,6 @@
         None,
         Mexican,
         Italian,
-        Indean
+        Indian
     }
 }

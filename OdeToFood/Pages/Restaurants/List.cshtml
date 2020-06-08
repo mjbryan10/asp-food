@@ -6,5 +6,25 @@
 }
 
 <h1 class="display-4">Restaurants</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Cuisine</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var restaurant in Model.Restaurants)
+        {
+            <tr>
+                <td>@restaurant.Name</td>
+                <td>@restaurant.Location</td>
+                <td>@restaurant.Cuisine</td>
 
-@Model.Message
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>@Model.Message</div>
