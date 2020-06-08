@@ -6,6 +6,20 @@
 }
 
 <h1 class="display-4">Restaurants</h1>
+
+<form method="get">
+    <div class="form-group">
+        <div class="input-group">
+            <input type="search" name="searchTerm" class=" form-control" asp-for="SearchTerm" />
+            <span class="input-group-btn">
+                <button class="btn btn-default">
+                    <i class="fas fa-search"></i>
+                </button>
+            </span>
+        </div>
+    </div>
+</form>
+
 <table class="table">
     <thead>
         <tr>
