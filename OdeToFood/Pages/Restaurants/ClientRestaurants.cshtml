@@ -7,7 +7,6 @@
 <h1>ClientRestaurants</h1>
 
 <table class="table" id="restaurants">
-
 </table>
 
 @section Scripts {
@@ -25,6 +24,9 @@
         /* Advisable to put scripts in seperate JS file, rather than here. */
 
         $(function () {
+
+            var cuisines = ["Unknown", "Mexican", "Italian", "Indian"];
+
             $.ajax("/api/restaurants/", { method: "get" })
                 .then(function (response) {
                     console.dir(response);
@@ -33,7 +35,10 @@
                         columns: [
                             { "data": "name" },
                             { "data": "location" },
-                            {"data": "cuisine"}]
+                            {
+                                "data": "cuisine","render":(data)=>cuisines[data]
+                                
+                            }]
                     })
                 })
         });
