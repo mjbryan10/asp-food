@@ -31,9 +31,12 @@ namespace OdeToFood
             });
             services.AddScoped<IRestaurantData, SqlRestaurantData>();
 
-            //For Development only:
+            //For API
+            services.AddRazorPages();
+            services.AddControllers();
+            /* For Development only:
             //services.AddSingleton<IRestaurantData, InMemoryRestaurantData>();
-            //---
+            */
             services.AddRazorPages();
         }
 
@@ -51,17 +54,28 @@ namespace OdeToFood
                 app.UseHsts();
             }
 
+
+            //middleware to use node modules for static assets
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseNodeModules();
+            app.UseCookiePolicy();
 
+            // For API
             app.UseRouting();
-
             app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
+            app.UseEndpoints(e =>
             {
-                endpoints.MapRazorPages();
+                e.MapRazorPages();
+                e.MapControllers();
             });
+            // ---
+            //app.UseRouting();
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapRazorPages();
+            //});
         }
     }
 }

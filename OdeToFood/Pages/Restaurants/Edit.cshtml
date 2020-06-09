@@ -18,7 +18,7 @@
         <label asp-for="Restaurant.Location"></label>
         <input asp-for="Restaurant.Location" class="form-control" />
         <span class="text-danger" asp-validation-for="Restaurant.Location"></span>
-            </div>
+    </div>
     <div class="form-group">
         <label asp-for="Restaurant.Cuisine"></label>
         <select asp-for="Restaurant.Cuisine" class="form-control" asp-items="Model.Cuisines">
@@ -27,3 +27,7 @@
     </div>
     <button type="submit" onSubmit="console.log(this)" class="btn btn-primary">Save</button>
 </form>
+
+@section Scripts {
+    <partial name="_validationScriptsPartial" />
+}
