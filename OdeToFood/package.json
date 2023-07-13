@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "datatables.net-bs4": "^1.10.21"
+    "datatables.net-bs4": "^1.13.5"
   }
 }
